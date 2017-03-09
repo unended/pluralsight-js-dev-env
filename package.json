@@ -47,7 +47,7 @@
         "html-webpack-plugin": "2.28.0",
         "jsdom": "9.11.0",
         "json-schema-faker": "0.4.0",
-        "json-server": "0.9.5",
+        "json-server": "0.9.6",
         "localtunnel": "1.8.2",
         "mocha": "3.2.0",
         "nock": "9.0.9",
