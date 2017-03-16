@@ -41,3 +41,6 @@ jspm_packages
 
 # VSCode settings directory
 .vscode
+
+# WebStorm directory
+.idea
