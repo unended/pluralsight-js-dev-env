@@ -5,9 +5,11 @@ import WebpackMd5Hash from 'webpack-md5-hash';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
-    debug: true,
+    // debug: true, Deprecated in webpack 3
     devtool: 'source-map',
-    noInfo: false,
+    devServer: {
+        noInfo: false
+    },
     entry: {
         vendor: path.resolve(__dirname, 'src/vendor'),
         main: path.resolve(__dirname, 'src/index')
@@ -54,16 +56,13 @@ export default {
             trackJSToken: 'f3523acad600468492943f9a9c0eb4d2'
         }),
 
-        // Eliminate duplicate packages when generating bundle
-        new webpack.optimize.DedupePlugin(),
-
         // Minify JS
         new webpack.optimize.UglifyJsPlugin()
     ],
     module: {
-        loaders: [
-            {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-            {test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap')}
+        rules: [
+            {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
+            {test: /\.css$/, use: ExtractTextPlugin.extract('css-loader?sourceMap')}
         ]
     }
 }
