@@ -1,7 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import WebpackMd5Hash from 'webpack-md5-hash';
+import MD5HashPlugin from 'md5-hash-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
@@ -24,8 +24,8 @@ export default {
         // Generate an external css file with a hash in the filename.
         new ExtractTextPlugin('[name].[contenthash].css'),
 
-        // Hash the files using MD5 so that their names change when the content changes.
-        new WebpackMd5Hash(),
+        // Hash the files using MD5 so that their names change when the content changes. Webpack3-friendly
+        new MD5HashPlugin(),
 
         // Use CommonChunkPlugin to create a separate bundle
         // of vendor libraries so that they're cached separately.
