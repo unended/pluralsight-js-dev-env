@@ -1,2 +1,2 @@
 # pluralsight-js-dev-env
-JS Dev Environment from Pluralsight Course
+JS Dev Environment originally from Pluralsight Course
